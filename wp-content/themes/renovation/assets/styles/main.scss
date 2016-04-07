@@ -1,0 +1,302 @@
+@import "common/_variables";
+
+// Automatically injected Bower dependencies via wiredep (never manually edit this block)
+// bower:scss
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+@import "common/_global";
+@import "components/_buttons";
+@import "components/_comments";
+@import "components/_forms";
+@import "components/_grid";
+@import "components/_wp-classes";
+@import "layouts/_header";
+
+@import "layouts/_sidebar";
+@import "layouts/_footer";
+@import "layouts/_pages";
+@import "layouts/_posts";
+@import "layouts/_home";
+
+@font-face {
+  font-family: 'jura';
+  src: url('../fonts/JuraDemiBold.eot?#iefix') format('embedded-opentype'),  url('../fonts/JuraDemiBold.otf')  format('opentype'),
+	     url('../fonts/JuraDemiBold.woff') format('woff'), url('../fonts/JuraDemiBold.ttf')  format('truetype'), url('../fonts/JuraDemiBold.svg#JuraDemiBold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body{
+	background-color: $color--gray;
+}
+
+h1, h2, h3, h4, h5, h6{
+	@include ff-ss(jura);
+}
+
+.wrap{
+	background-color: $color--white;
+	padding-right: 30px;
+	padding-left: 30px;
+	&.slider__main, &.masshead__page{
+		padding-right: 0px;
+		padding-left: 0px;
+	}
+
+	&.masshead__page{
+		#masshead__page{
+			position: relative;
+			top: -20px;
+			background-color: $color--white--smoke;
+			.page-header{
+				text-align: center;
+				margin: 0;
+				padding-bottom: 0;
+		  		border-bottom: 1px solid transparent;
+				h1{
+					padding: 120px 0 80px;
+					text-transform: uppercase;
+					margin: 0;
+					color: $color--white;
+					text-shadow: 0 1px 1px rgba(0,0,0,0.4), 0 2px 20px rgba(0,0,0,0.3);
+					position: relative;
+  					z-index: 4;
+				}
+				&:after {
+				  display: block;
+				  content: '';
+				  position: absolute;
+				  bottom: 0;
+				  left: 0;
+				  right: 0;
+				  height: 100%;
+				  z-index: 2;
+				  opacity: 0.8;
+				  background: -moz-linear-gradient(top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,.75) 100%);
+				  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.1)), color-stop(100%,rgba(0,0,0,.75)));
+				  background: -webkit-linear-gradient(top, rgba(0,0,0,0.1) 0%,rgba(0,0,0,.75) 100%);
+				  background: -o-linear-gradient(top, rgba(0,0,0,0.1) 0%,rgba(0,0,0,.75) 100%);
+				  background: -ms-linear-gradient(top, rgba(0,0,0,0.1) 0%,rgba(0,0,0,.75) 100%);
+				  background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%,rgba(0,0,0,.75) 100%);
+				  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 );
+				}
+			}
+		}
+	}
+}
+
+.navbar{
+	min-height: inherit;
+	height: 40px;
+	margin-bottom: 0;
+	&.navbar-default{
+		background-color: transparent;
+		border-color: transparent;
+		.container{
+			background: $color--red url(../images/nav__bg.png) repeat-x center top;
+			width: auto;
+			height: 40px;
+			nav{
+				ul{
+					li{
+						a{
+							text-transform: uppercase;
+							color: $color--white;
+							@include ff-ss(jura);
+							font-size: 14px;
+							padding: 10px; 
+						}
+					}
+					li.current-menu-item.active{
+					&:before{
+						content: url(../images/nav__item--active.png);
+						position: absolute;
+						top: 0;
+						left: -7px;
+					}
+						a{
+							color: $color--red;
+  							background-color: $color--white;
+  							padding-bottom: 7px;
+						}
+					&:after{
+						content: url(../images/nav__item--active--2.png);
+						position: absolute;
+						top: 0;
+						right: -7px;
+					}
+					}	
+				}
+			}
+		}
+	}
+}
+
+.logo{
+	margin: 0;
+	padding: 0;
+	a{
+		span{
+			position: relative;
+			display: block;
+			text-indent: 100%;
+			white-space: nowrap;
+			overflow: hidden;
+			margin: 0;
+			padding: 0;
+		}
+	}
+}
+
+.header--super{
+	.wrap.lang{
+		background-color: $color--white--smoke;
+		.content{
+		@include make-row(); 
+		  margin-left: 0;
+		  margin-right: 0;
+			.header__lang{
+				padding: 3px 0;
+				float:left;
+			}
+		}
+	}
+	.wrap.branding{
+		padding: 20px 0; 
+		.content{
+		@include make-row();  
+			.header__branding, .header__info{
+				 @include make-sm-column(6);
+			}
+			.header__info{
+				text-align: right;
+				font-size: 12px;
+				padding-top: 25px;
+			}
+		}
+	}
+}
+
+.navbar-form.navbar-search{
+	margin-top: 0px;
+	margin-bottom: 0px;
+	box-shadow: none;
+	.input-group{
+		background-image: url(../images/search-form__bg.png);
+		background-repeat: repeat;
+		input{
+			height: 26px;
+			border-radius: 0;
+			box-shadow: none;
+			border: 1px solid transparent;
+			background-color: transparent;
+			color: $color--gray--dark;
+			&::-webkit-input-placeholder { /* WebKit browsers */
+			    color:    $color--gray--dark;
+			}
+			&:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+			   color:    $color--gray--dark;
+			   opacity:  1;
+			}
+			&::-moz-placeholder { /* Mozilla Firefox 19+ */
+			   color:    $color--gray--dark;
+			   opacity:  1;
+			}
+			&:-ms-input-placeholder { /* Internet Explorer 10+ */
+			   color:    $color--gray--dark;
+			}
+
+			&:focus{
+				
+				box-shadow: none;
+				border-color: transparent;
+				&::-webkit-input-placeholder { /* WebKit browsers */
+			   	 color:    $color--gray;
+				}
+				&:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+			   color:    $color--gray;
+			   opacity:  1;
+				}
+				&::-moz-placeholder { /* Mozilla Firefox 19+ */
+				   color:    $color--gray;
+				   opacity:  1;
+				}
+				&:-ms-input-placeholder { /* Internet Explorer 10+ */
+				   color:    $color--gray;
+				}
+			}
+		}
+		.input-group-btn{
+			.search-submit{
+				border-radius: 0;
+				padding: 5px 12px 2px;
+				font-size: 12px;
+				border-color: transparent;
+				background-color: transparent;
+				color: $color--gray--dark;
+			}
+		}
+	}
+}
+
+.header__lang{
+	ul.menu{
+		padding-left: 0;
+		list-style: none;
+		margin-left: -5px;
+		width: auto;
+		margin-bottom: 0;
+		li{
+			display: inline-block;
+			padding-left: 0px;
+			padding-right: 0px;
+			a{
+				color: $color--gray--darker;
+				padding: 5px 10px;
+				img{
+					vertical-align: baseline;
+				}
+			}
+		}
+		li.current-lang{
+			a{
+				color: $color--gray--dark;
+				background-color: $color--white;
+			}
+		}
+	}
+}
+
+.btn, .comment-form input[type=submit]{
+	border-radius: 0;
+}
+
+
+
+@media (min-width: $screen-sm){
+
+	.navbar-nav>li>a {
+	  padding-top: 10px;
+	  padding-bottom: 10px;
+	}
+	.logo {
+		a{
+			width: 213px;
+			height: 82px;
+			display: inline-block;
+			line-height: 1;
+			margin: 0;
+			background-image: url(../images/logo--sm.png);
+		}
+	}
+	.navbar-form.navbar-search{
+		width: 20%;
+	}
+}
+
+@media (min-width: $screen-md){
+	.container {
+		width: 970px;
+	}
+}

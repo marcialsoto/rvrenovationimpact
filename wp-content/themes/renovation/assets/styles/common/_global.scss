@@ -1,0 +1,27 @@
+@mixin ff-ss($font) {
+	font-family: '#{$font}', sans-serif;
+}
+
+body{
+	margin: 20px auto;
+}
+
+
+.nav.nav-sidebar{
+	li{
+		&.active{
+			a{
+				background-color: $color--red;
+				color: $color--white;
+				&:hover{
+					background-color: $color--red;
+				}
+			}
+		}
+		a{
+			&:hover{
+				background-color: $color--red--light;
+			}
+		}
+	}
+}

@@ -1,0 +1,29 @@
+.page{
+	&.accreditations, &.accreditations-2{
+		#masshead__page{
+			background: url('../images/accreditations.jpg')  no-repeat top left; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;
+		}
+	}
+
+	&.realisations, &.achievements{
+		.page-header{
+			h1{
+				padding: 45px 3px !important;
+				small{
+					a{
+						cursor: pointer;
+					}
+				}
+			}
+		}
+		#slider__achievements{
+			.item{
+				a{
+					img{
+
+					}
+				}
+			}
+		}
+	}
+}

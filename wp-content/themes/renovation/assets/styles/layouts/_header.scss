@@ -1,0 +1,19 @@
+#menu-menu-social{
+	li{
+		a{
+			padding-top: 3px;
+			padding-bottom: 3px;
+		}
+		&.menu-item-212{
+			a{
+				color: $color--blue--fb;
+			}
+		}
+		&.menu-item-213{
+			a{
+				color: $color--blue--tw;
+			}
+		}
+	}
+
+}
